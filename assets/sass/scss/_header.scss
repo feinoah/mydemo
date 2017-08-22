@@ -1,0 +1,112 @@
+.header{
+    display: block;
+    width:100%;
+    padding:1rem 0 0.75rem;
+    position: relative;
+    overflow: hidden;
+    background-color: $bg-ff;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) ;
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) ;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) ;
+    .container{
+        .main-nav{
+            line-height: 1.55rem;
+            font-size: $font-size-16-nav;
+            position: relative;
+            .nav-logo{
+                height: 2.5rem;
+                line-height: 2.5rem;
+                color: $orange;
+                font-size: 1.1rem;
+                width: 12.7rem;
+                img{
+                    vertical-align: middle;
+                    height: auto;
+                    width: 3.5rem;
+                }
+            }
+            .nav-right{
+                display: block;
+                float: left;
+                width: 42.3rem;
+            }
+            .nav-list{
+                display: inline-block;
+                padding: 0 1rem;
+                line-height: 2.5rem;
+                font-size:0.8rem;
+                width:28.5rem;
+                overflow: hidden;
+                //width: auto;
+                border-top: 0;
+                height: auto!important;
+                .nav-list-item{
+                    position: relative;
+                    display: block;
+                    float: left;
+                    text-align: center;
+                    overflow: hidden;
+                    .nav-list-link{
+                        position: relative;
+                        display: block;
+                        width: 100%;
+                        color: $grey-99;
+                        padding:0 1rem;
+                        &:hover,&.active{
+                            color: $black;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+        .serach{
+            float: right;
+            width: 11rem;
+        }
+    }
+}
+.f-search-box-top{
+    position: relative;
+}
+.f-search-form-top{
+    margin: 0 auto;
+    margin-top: 0.5rem;
+}
+.f-search-text-top{
+    width: 8rem;
+    float: left;
+    display: inline-block;
+    outline: none;
+    padding:0 0.4rem;
+    height: 1.7rem;
+    font-size: 0.7rem;
+    line-height: 1.6rem;
+    -webkit-border-radius: 5px 0 0 5px;
+    -moz-border-radius: 5px 0 0 5px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #a8a8a8;
+}
+.f-search-text-top:focus{
+    -webkit-box-shadow: inset 1px 0 30px rgba(255,255,255,.8);
+    -moz-box-shadow: inset 1px 0 30px rgba(255,255,255,.8);
+    box-shadow: inset 1px 0 30px rgba(255,255,255,.8);
+}
+.f-search-form-top.focus{
+    background-color: red;
+}
+.f-search-button-top{
+    float: left;
+    display: inline-block;
+    height: 1.7rem;
+    padding:0 0.45rem;
+    font-size: 0.75rem;
+    line-height: 1.7rem;
+    cursor: pointer;
+    -webkit-border-radius: 0 5px 5px 0;
+    -moz-border-radius: 0 5px 5px 0;
+    border-radius: 0 5px 5px 0;
+    border:0;
+    background-color: $green;
+    color: #ffffff;
+}

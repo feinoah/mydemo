@@ -1,0 +1,173 @@
+.steps{
+  .steps-nav {
+    padding: 1.5rem 20%;
+    border-top: 1px solid $border-dd;
+    .item {
+      position: relative;
+      float: left;
+      display: inline-block;
+      height: 2.5rem;
+      &:after, &:before {
+        content: '';
+        position: absolute;
+        width: 50%;
+        top: 50%;
+        height: 1px;
+        background-color: $border-dd;
+        z-index: 1;
+      }
+      &:after {
+        right: 0;
+      }
+      &:before {
+        left: 0;
+      }
+      &:first-child:before, &:last-child:after {
+        display: none;
+      }
+      .ball {
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        margin: 0 auto;
+        width: 2.5rem;
+        height: 2.5rem;
+        -webkit-border-radius: 100rem;
+        -moz-border-radius: 100rem;
+        border-radius: 100rem;
+        background-color: $bg-ee;
+        line-height: 2.5rem;
+        text-align: center;
+        color: $font-66;
+        & > i {
+          display: none;
+          font-size: 1rem;
+        }
+
+      }
+      &.active > .ball {
+        background-color: $green;
+        & > i {
+          position: relative;
+          display: block;
+          top: 50%;
+          margin-top: -10px;
+          color: $font-ff;
+        }
+        & > span {
+          display: none;
+        }
+      }
+    }
+  }
+  .steps-tit {
+    padding: 0 20%;
+    .item {
+      display: inline-block;
+      float: left;
+      text-align: center;
+    }
+  }
+  .steps-content {
+    margin-top: 3rem;
+    .steps-item {
+      display: none;
+      &.active {
+        display: block;
+      }
+      .result-msg {
+        padding: 1rem;
+        .ok-bz {
+          width: 2.5rem;
+          height: 2.5rem;
+          background-color: $orange;
+          line-height: 2.5rem;
+          text-align: center;
+          font-size: 1rem;
+          margin: 0 auto;
+          color: $font-ff;
+          -webkit-border-radius: 100rem;
+          -moz-border-radius: 100rem;
+          border-radius: 100rem;
+          margin-bottom: 1rem;
+        }
+        .ok-tit {
+          font-size: 1rem;
+          color: $black;
+          margin-bottom: 1rem;
+          font-weight: bold;
+        }
+        .ok-info {
+          font-size: 0.7rem;
+          color: $black;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+    .upload-box {
+      width: 17rem;
+      height: 4.6rem;
+      border: 1px dashed $border-dd;
+    }
+    .fujian {
+      border: none;
+      outline: none;
+      width: 17rem;
+      height: 4.6rem;
+      background: transparent url("../../assets/img2/upload.jpg") center no-repeat;
+      -webkit-background-size: contain;
+      background-size: contain;
+    }
+    .fenlei {
+      .btn {
+        text-align: left;
+      }
+      .caret {
+        margin-top: 0.3rem;
+      }
+    }
+    .btn-org-o {
+      display: block;
+      margin: 1.5rem auto;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+      .form-control {
+        height: 2rem;
+      }
+      textarea.form-control {
+        height: auto;
+      }
+      .form-control.form-control-auto{
+        height: auto;
+        padding:0;
+      }
+    }
+    .txt {
+      margin-top: 0.35rem;
+    }
+    .edui-container{
+      border-width: 0;
+      box-shadow: none;
+      width: 100% !important;
+    }
+    .edui-body-container{
+      width: 100% !important;
+    }
+  }
+  .nav3{
+    .item{
+      width: 33.333%;
+    }
+  }
+  .nav4{
+    .item{
+      width: 25%;
+    }
+  }
+  .nav5{
+    .item{
+      width: 20%;
+    }
+  }
+}

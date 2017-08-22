@@ -1,0 +1,43 @@
+.selected-wrapper{
+  position: absolute;
+  left: 0.75rem;
+  top: 1.9rem;
+  z-index: 9999;
+  border: 2px solid $border-dd;
+  background-color: $bg-ff;
+  display: none;
+  &.active{
+    display: block;
+  }
+  .select-list{
+    max-height: 15rem;
+    max-width: 15rem;
+    display: inline-block;
+    float: left;
+    overflow-y: auto;
+    &+.select-list{
+      border-left: 1px solid $border-dd;
+    }
+    .item{
+      line-height: 1.5rem;
+      padding: 0 0.75rem;
+      font-size:0.6rem;
+      cursor: pointer;
+      &+.item{
+        border-top: 1px dashed $border-dd;
+      }
+      &:hover,&:active,&.active {
+        background-color: $bg-ee;
+      }
+    }
+  }
+}
+.select-cover{
+  position: absolute;
+  left:0;
+  right:0;
+  top:0;
+  height: 1.9rem;
+  z-index: 99;
+  cursor: pointer;
+}

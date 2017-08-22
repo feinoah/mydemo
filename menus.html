@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style” content=black">
+    <link rel="shortcut icon" href="">
+    <link rel="apple-touch-icon" href="">
+    <meta name="keywords" content="关键词1,关键词2">
+    <meta name="description" content="描述">
+    <title>select下拉框</title>
+    <link href="assets/statics/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/statics/bootstrapvalidator/css/bootstrapValidator.min.css" rel="stylesheet">
+    <link href="assets/statics/animate/animate.css?v=148" rel="stylesheet">
+    <link href="assets/css/all.css?v=148" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="assets/statics/ie/ie8.css">
+    <script src="assets/statics/ie/html5shiv.min.js"></script>
+    <script src="assets/statics/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<main style="width: 80%;margin: 90px auto;">
+    <div class="header text-center" style="margin-bottom: 90px;">
+        <h1>联动菜单</h1>
+    </div>
+    <div class="sub-menu" style="display: block">
+        <div class="sub-menu-shell">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-xs-offset-6 col-xs-6">
+                        <ul class="menu-lv1 menus cols-5">
+                        </ul>
+                        <ul class="menu-lv2 menus cols-10">
+                        </ul>
+                        <ul class="menu-lv3 menus cols-5">
+                        </ul>
+                        <div class="line line1">
+                        </div>
+                        <div class="line line2">
+                        </div>
+                        <div class="line line3">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <h4>Json 数据结构</h4>
+    <pre>
+        {
+            "status":200,
+            "message":"\u606d\u559c\u60a8\uff01\u64cd\u4f5c\u6210\u529f",
+            "data":[
+                {"id":1,"name":"\u5317\u4eac","parent_id":0,"sort":0,"deep":1,"region":"\u534e\u5317"}
+            ]
+        }
+    </pre>
+    <div class="section">
+        <h4>编辑时后台传来的数据</h4>
+        <form class="form-horizontal" novalidate>
+            <div class="form-group clearfix">
+                <label class="col-xs-2 control-label" for="inputELm">分类</label>
+                <div class="col-xs-6 js-container-2">
+                    <select id="selectELm" name="selectELm" class="form-control">
+                        <option value="">请选择分类</option>
+                    </select>
+                    <div class="select-cover"></div>
+                    <div class="selected-wrapper">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <pre>
+            var dataA = {
+                    "attr": [{"id":113,"product_id":37,"status":1,"name":"b","attribute":"b123123123","sort":1},{"id":115,"product_id":37,"status":1,"name":"d","attribute":"d123123123123","sort":0}],//属性
+                    "cate": ["\u9632\u52a1\u6d1e\u5bdf","\u672a\u6765\u6218\u573a"],//分类
+                    "area": ["\u5317\u4eac","\u5317\u4eac\u5e02","\u4e1c\u57ce\u533a"],//地区
+                    "content": "<p>121312312323<\/p>"//详情
+            };
+        </pre>
+    </div>
+</main>
+
+<script src="assets/statics/jquery/1.11.1/jquery.min.js"></script>
+<script src="assets/js/menus/menus1-plugin.js">
+
+$(function(){
+
+});
+
+</script>
+</body>
+</html>

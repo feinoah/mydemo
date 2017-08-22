@@ -1,0 +1,25 @@
+.products-normal.qianyin-products{
+
+  padding:0;
+  width: 70%;
+  margin:0 auto;
+}
+.qy-qd-title{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  font-size: 0.7rem;
+  color: $black;
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+  &:after{
+    position: absolute;
+    content: '';
+    width: 4rem;
+    height: 0.1rem;
+    background-color: $black;
+    bottom:0;
+    left:50%;
+    margin-left: -2rem;
+  }
+}

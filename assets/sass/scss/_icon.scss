@@ -1,0 +1,48 @@
+.icon{
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.icon-xs{
+  width: 17px;
+  height: 17px;
+}
+.ic-clock{
+  background-image: url(../img/clock.png);
+}
+.icon-dh{
+  width: 54px;
+  height: 54px;
+  background-image: url("../img/icon-dh.png");
+  -webkit-background-size:auto;
+  background-size:auto;
+}
+.icon-font{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+.checkbox-ui{
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  input{
+    position: absolute;
+    top:100%;
+    right:100%;
+  }
+}
+
+.checkbox-ui input:checked + .icon-font:after {
+  content: '\2713';
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #758794;
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+  vertical-align: text-top;
+}

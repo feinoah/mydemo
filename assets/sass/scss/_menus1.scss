@@ -1,0 +1,80 @@
+.sub-menu {
+  min-height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  border-bottom: 1px solid $border-dd;
+  border-top: 1px solid $border-dd;
+  visibility: hidden;
+  background-color: $bg-ff;
+  .container{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .title {
+    font-size: 1.8rem;
+    font-weight: bolder;
+  }
+  .menu-lv1 {
+    //border-left: 1px solid $border-dd;
+    .item {
+      width: 100%;
+      padding:0 0.325rem;
+      & + .item {
+        margin-top: 0.5rem;
+      }
+      a{
+        font-size: 0.7rem;
+        line-height: 2rem;
+        display: inline-block;
+        text-indent: 0.5rem;
+        width: 100%;
+        color: $font-base;
+        &.active,&:hover,&:active,&:focus{
+          background-color: $blue;
+          color: $font-ff;
+        }
+      }
+    }
+  }
+  .menu-lv2{
+    .item{
+      width: 50%;
+      display: inline-block;
+      float: left;
+    }
+  }
+  .menu-lv3{
+    .item{
+      width: 100%;
+    }
+  }
+  .menu-lv2,.menu-lv3{
+    //border-left: 1px solid $border-dd;
+    .item{
+      padding:0 0.325rem;
+      a{
+        padding:0 0.325rem;
+        margin-bottom: 0.5rem;
+        background-color: $bg-ee;
+        font-size: 0.7rem;
+        line-height: 2rem;
+        display: inline-block;
+        width: 100%;
+        text-indent: 0.5rem;
+        color: $font-base;
+        white-space: nowrap;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        &.active,&:hover,&:active,&:focus{
+          background-color: $blue;
+          color: $font-ff;
+        }
+      }
+    }
+  }
+}

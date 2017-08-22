@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style” content=black">
+    <link rel="shortcut icon" href="">
+    <link rel="apple-touch-icon" href="">
+    <meta name="keywords" content="关键词1,关键词2">
+    <meta name="description" content="描述">
+    <title>this-严格模式下</title>
+    <link href="../assets/statics/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/statics/bootstrapvalidator/css/bootstrapValidator.min.css" rel="stylesheet">
+    <link href="../assets/statics/animate/animate.css?v=148" rel="stylesheet">
+    <link href="../assets/css/all.css?v=148" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="../assets/statics/ie/ie8.css">
+    <script src="../assets/statics/ie/html5shiv.min.js"></script>
+    <script src="../assets/statics/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h1>严格模式下的this</h1>
+            </div>
+            <div class="body">
+                <h4 class="bg-primary">全局中的this</h4>
+                <p>全局中的this指向window</p>
+                <p id="quanju"></p>
+                <h4>局部中的this</h4>
+                <p>局部中的this默认未指向任何对象,undefined</p>
+                <p id="jubu"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/statics/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    "use strict";
+
+    console.log('全局this:'+this);//window
+    var ab=1;
+    console.log('ab是挂在window上:'+this.ab);//1;
+    this.ba=1;
+    console.log('ba: '+ba);//1
+
+    var quanju = document.getElementById('quanju');
+    var jubu = document.getElementById('jubu');
+
+    quanju.innerText = this;
+
+    //函数中的this
+    function a() {
+        if (this === undefined) {
+            jubu.innerText = 'undefined';
+            console.log('严格模式下,局部,普通函数内部this默认为undefined:'+this);//undefined
+        }else {
+            console.log('非严格模式下,局部,普通函数内部this默认为window:'+this);//window
+        }
+
+
+    }
+    a();
+
+    //构造函数中的this
+    function Dog(name) {
+        console.log(this);//通过new创造后this指向Dog对象
+        this.name = name;
+        this.weight = "10kg";
+        this.say = function () {
+            console.log('my name is :' + this.name);
+        };
+
+    }
+
+    var god = new Dog('god');
+    god.say();
+
+    //构造函数直接执行
+    function Cat() {
+        this.name = "咪咪";
+        console.log(this);
+    }
+    //直接执行Cat();严格模式下会报错因为this默认指向undefined,非严格模式下this指向window,便不会报错,name成为全局变量
+    //console.log(name);非严格模式下输出'咪咪'
+</script>
+</body>
+</html>

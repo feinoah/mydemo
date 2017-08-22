@@ -1,0 +1,29 @@
+
+@mixin make-col-span($size, $columns: $grid-columns) {
+  @if $enable-flex {
+    flex: 0 0 percentage($size / $columns);
+  } @else {
+    width: percentage($size / $columns);
+  }
+}
+
+
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width) {
+  // Common properties for all breakpoints
+  %grid-column {
+    position: relative;
+    // Prevent columns from collapsing when empty
+    min-height: 1px;
+    // Inner gutter via padding
+    float: left;
+    padding-left: ($gutter / 2);
+    padding-right: ($gutter / 2);
+  }
+
+  @for $i from 1 through $columns {
+    .cols-#{$i} {
+      @include make-col-span($i, $columns);
+      @extend %grid-column;
+    }
+  }
+}

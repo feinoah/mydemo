@@ -1,0 +1,176 @@
+.table-trips-f9 {
+  & > thead > tr > th {
+    border-bottom: 1px solid $border-dd;
+    line-height: 1.2rem;
+    color: $black;
+  }
+  & > thead > tr {
+    border-top: 2px solid $border-dd;
+    background-color: $bg-ee;
+  }
+  & > tbody > tr:nth-of-type(even) {
+    background-color: $bg-ee;
+    line-height: 1.85rem;
+  }
+  & > tbody > tr > th, & > tbody > tr > td {
+    line-height: 1.25rem;
+    font-weight: 400;
+  }
+  & > tbody > tr:hover {
+    color: $orange;
+    cursor: pointer;
+  }
+}
+
+.table-1 {
+  & > thead > tr > th {
+    border-top: 0;
+    border-bottom: 1px solid #DDDDDD;
+    background-color: $bg-ee;
+    font-weight: 400;
+    line-height: 1.7rem;
+    color: $black;
+  }
+  & > thead > tr > th:nth-child(1) {
+    padding-left: 0.6rem;
+  }
+  & > tbody > tr > th {
+    font-weight: 400;
+    padding-left: 0.6rem;
+  }
+  & > tbody > tr:hover, & > tbody > tr.active {
+    color: $orange;
+    cursor: pointer;
+  }
+  & > tbody > tr > th, & > tbody > tr > td {
+    line-height: 1.2rem;
+  }
+}
+
+.company-table1 {
+  margin: 1rem auto;
+  th {
+    background-color: $bg-ee;
+    width: 7rem;
+    color: $font-66;
+    font-weight: 400;
+  }
+  td {
+    color: $font-00;
+  }
+  th, td {
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+}
+
+//div table
+.table-div {
+  &.qianyin-table{
+    .tbody{
+      .tr,.qdtr{
+        height: 2.05rem;
+        background-color: $bg-ff;
+        -webkit-transition: all 0.35s;
+        -moz-transition: all 0.35s;
+        -ms-transition: all 0.35s;
+        -o-transition: all 0.35s;
+        transition: all 0.35s;
+        &:hover{
+          //height: 19.55rem;
+        }
+        &.active{
+          height: 19.55rem;
+        }
+      }
+    ;
+    }
+  }
+  &.qudong-table{
+    .tbody{
+      width: 100%;
+      min-height: 1rem;
+      .tr,.qdtr{
+        height: 2.05rem;
+        background-color: $bg-ff;
+        -webkit-transition: all 0.35s;
+        -moz-transition: all 0.35s;
+        -ms-transition: all 0.35s;
+        -o-transition: all 0.35s;
+        transition: all 0.35s;
+        padding: 0.4rem 0;
+        line-height: 1.2rem;
+        border-top: 1px solid $border-dd;
+        overflow: hidden;
+        &:hover{
+          //height: 19.55rem;
+        }
+        &.active{
+          height: 19.55rem;
+        }
+        .qdtr{
+          .qd-title{
+            padding-top: 0.5rem;;
+          }
+        }
+      }
+      .qdtr{
+        &>div[class^="cols"]{
+          white-space: nowrap;
+          overflow: hidden;
+          -ms-text-overflow: ellipsis;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+  .thead {
+    border-top: 2px solid $border-dd;
+    font-weight: 400;
+    background-color: $bg-fb;
+    line-height: 1.2rem;
+    padding: 0.65rem 0;
+    color: $navy;
+  }
+  .tbody {
+    //min-height: 10rem;
+    overflow: hidden;
+    .tr {
+      position: relative;
+      display: block;
+      padding: 0.4rem 0;
+      line-height: 1.2rem;
+      border-top: 1px solid $border-dd;
+      overflow: hidden;
+      &:hover {
+        color: $orange;
+        cursor: pointer;
+      }
+      & > div[class^="cols"] {
+        white-space: nowrap;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+  .thead:after, .thead:before, .tr:after, .tr:before {
+    display: table;
+    content: " ";
+  }
+  .thead:after, .tr:after {
+    clear: both;
+  }
+}
+
+.table-div-trips {
+  .tbody {
+    .tr:nth-child(even) {
+      background-color: rgb(238, 238, 238);;
+    }
+  }
+}
+.xm-qd-xq{
+  padding: 2rem 0;
+  width:50%;
+  margin:0 auto;
+}

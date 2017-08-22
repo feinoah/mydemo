@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>mvc</title>
+</head>
+<body>
+<a href="http://www.mamicode.com/info-detail-427942.html">原文</a>
+<p></p>
+<select id="drinkSelect">
+    <option value="coffee">coffee</option>
+    <option value="milk">milk</option>
+    <option value="juice">juice</option>
+</select>
+<p id="theColorOfDrink"></p>
+<script type="text/javascript">
+    //showDrinkColor is Controllervar
+    var showDrinkColor = {
+        start: function () {
+            this.view.start();
+        },
+        set: function (drinkName) {
+            this.model.setDrink(drinkName);
+        }
+    };
+    //Model
+    showDrinkColor.model = {
+        colorOfDrink: {
+            "coffee": "brown",
+            "milk": "white",
+            "juice": "orange"
+        },
+        selectedDrink: null,
+        setDrink: function (drinkName) {
+            this.selectedDrink = drinkName;
+            this.onchange();
+        },
+        onchange: function () {
+            showDrinkColor.view.update();
+        },
+        getDrinkColor: function () {
+            this.selectedDrink = document.getElementById("drinkSelect").value;
+            return this.selectedDrink ? this.colorOfDrink[this.selectedDrink] : "white";
+        }
+    };
+    //View
+    showDrinkColor.view = {
+        start: function () {
+            this.update();
+            document.getElementById("drinkSelect").onchange = this.onchange;
+        },
+        onchange: function () {
+            showDrinkColor.set(document.getElementById("drinkSelect").value);
+        },
+        update: function () {
+            document.getElementById("theColorOfDrink").innerHTML = showDrinkColor.model.getDrinkColor();
+        }
+    };
+    showDrinkColor.start();
+</script>
+</body>
+</html>

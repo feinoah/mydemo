@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style” content=black">
+    <link rel="shortcut icon" href="">
+    <link rel="apple-touch-icon" href="">
+    <meta name="keywords" content="关键词1,关键词2">
+    <meta name="description" content="描述">
+    <title>this-严格模式下</title>
+    <link href="../assets/statics/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/statics/bootstrapvalidator/css/bootstrapValidator.min.css" rel="stylesheet">
+    <link href="../assets/statics/animate/animate.css?v=148" rel="stylesheet">
+    <link href="../assets/css/all.css?v=148" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="../assets/statics/ie/ie8.css">
+    <script src="../assets/statics/ie/html5shiv.min.js"></script>
+    <script src="../assets/statics/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h1>jquery严格模式下的this</h1>
+            </div>
+            <div class="body">
+                <h4 class="bg-primary">jquery全局中的this</h4>
+                <p>全局中的this指向document</p>
+                <p class="quanju"></p>
+                <h4>局部中的this</h4>
+                <p>局部中的this默认未指向任何对象,undefined</p>
+                <p class="jubu"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/statics/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    "use strict";
+    $(function(){
+
+        console.log(this);//document
+        $('.quanju').text(this);
+        function a(){
+            if(this===undefined){
+                $('.jubu').text('undefined');
+            }
+
+            console.log(this);//undefined,若非严格模式下指向window
+        }
+        a();
+    });
+
+</script>
+</body>
+</html>

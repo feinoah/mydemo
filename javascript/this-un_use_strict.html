@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style” content=black">
+    <link rel="shortcut icon" href="">
+    <link rel="apple-touch-icon" href="">
+    <meta name="keywords" content="关键词1,关键词2">
+    <meta name="description" content="描述">
+    <title>this-非严格模式下</title>
+    <link href="../assets/statics/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/statics/bootstrapvalidator/css/bootstrapValidator.min.css" rel="stylesheet">
+    <link href="../assets/statics/animate/animate.css?v=148" rel="stylesheet">
+    <link href="../assets/css/all.css?v=148" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="../assets/statics/ie/ie8.css">
+    <script src="../assets/statics/ie/html5shiv.min.js"></script>
+    <script src="../assets/statics/ie/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h1>非严格模式下的this</h1>
+            </div>
+            <div class="body">
+                <div class="section-group">
+                    <h4 class="bg-primary">全局上下文中的this</h4>
+                    <div class="content">
+                        <p>全局中的this指向全局对象,在浏览器中这个全局对象名为window</p>
+                    </div>
+                </div>
+                <div class="section-group">
+                    <h4 class="bg-primary">函数上下文中的this,
+                        <small>在函数内部，this取决于函数的调用方式。</small>
+                    </h4>
+                    <div class="content"><p>以下代码中this不是通过调用设置的,this 默认为全局对象window</p>
+                        <p></p>
+                    <pre>function f1() {
+  return this;
+}
+//在浏览器中 In a browser:
+f1() === window; // the window is the global object in browsers
+
+//在node中 In Node:
+f1() === global;</pre>
+                    </div>
+                    <div class="section-group">
+                        <h4 class="bg-primary">构造函数中的this,未实例化前,因为未经调用,this未定义,实例化后指向构造器实例化后的对象</h4>
+                        <div class="content">
+                            <p>当一个函数被作为一个构造器来使用（使用new关键字），它的this与即将被创建的新对象绑定。</p>
+                            <p>构造函数通过new进行实例化,新的实例中this指向实例化后的这个对象</p>
+                    <pre>function Dog(name) {
+        console.log(this);//通过new创造后this指向Dog对象
+        this.name = name;
+        this.weight = "10kg";
+        this.say = function () {
+            console.log('my name is :' + this.name);
+        };
+    }
+var god = new Dog('god');
+var person=new Dog('jack')</pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-group">
+                    <h4 class="bg-primary">对象方法中的this</h4>
+                    <div class="content">
+                        <p>当以对象里的方法的方式调用函数时，它们的 this 是调用该函数的对象.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/statics/jquery/1.11.1/jquery.min.js"></script>
+<script>
+
+//    "use strict";//严格模式
+
+    console.log('全局this的值为全局对象,在浏览器中这个全局对象的名为window:' + this);//window
+    console.log(this === window);//true
+    var a = 1;
+    console.log('a是挂在window上:' + this.a);//1;
+    this.b = 1;
+    console.log('b: ' + b);//1
+
+    //函数中的不是通过调用设置的this,其值默认为全局对象,在浏览器中为window
+    function foo() {
+        if (this === undefined) {
+            console.log('如果函数中this的值不是通过调用设置的,严格模式下,其值默认为undefined:' + this);//undefined
+        } else {
+            console.log('如果函数中this的值不是通过调用设置的,非严格模式下,其值默认为全局对象,浏览器中这个全局对象名为window:' + this);//window
+        }
+        return this;
+    }
+    foo();
+
+    //构造函数中的this
+    function Dog(name) {
+        console.log(this);//通过new创造后this指向Dog对象
+        this.name = name;
+        this.weight = "10kg";
+        this.say = function () {
+            console.log('my name is :' + this.name);
+        };
+
+    }
+
+    new Dog('god');//Dog{name:'god',...}  其挂载点是?通过什么来访问?
+    var person=new Dog('jack');//Dog{name:'jack',...} 其挂载到名为person的变量上,可以通过person来访问
+    //    god.say();
+
+    //构造函数直接执行
+    function Cat() {
+        this.name = "咪咪";//name挂在window上,为全局变量
+        console.log(this);
+    }
+    Cat();//直接执行严格模式下会报错因为this默认指向undefined,非严格模式下this指向window,便不会报错,name成为全局变量
+    console.log("name成为全局变量:" + name);//非严格模式下输出'咪咪'
+</script>
+</body>
+</html>

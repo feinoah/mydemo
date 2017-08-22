@@ -1,0 +1,99 @@
+.form-yh{
+  .form-control{
+    border-color: $grey-e9;
+    background-color: transparent;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
+  }
+  .checkbox-ui {
+    .icon-font{
+      width: 16px;
+      height:16px;
+      line-height: 14px;
+      border: 1px solid $grey-e9;
+      margin-right: 10px;
+      margin-top:-3px;
+    }
+  }
+}
+.form-control.error,.has-error .form-control,.has-error .form-control:focus{
+  border:2px solid $orange;
+}
+.form-control.valid,.btn.valid,.has-success .form-control{
+  &:focus{
+    border: 2px solid $green;
+  }
+  border: 2px solid $green;
+}
+.steps{
+  .form-control{
+    border-width:2px;
+  }
+  .btn{
+    border-width: 2px;
+  }
+}
+.form-control.form-control-0,.input-hide{
+  position: absolute !important;
+  left:200%;
+  top:100%;
+}
+.msg{
+  display: block;
+  width: 100%;
+}
+
+.form-horizontal .has-feedback .form-control-feedback{
+  z-index: 999;
+  right: -10px;
+}
+.forwhat{
+  font-size: 0.6rem;
+  line-height: 1.7rem;
+}
+.show-file-path{
+  line-height: 1.7rem;
+  color: red;
+  font-weight: 400;
+ }
+.send-code-btn{
+  width: 100%;
+}
+.transition-default{
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -ms-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.export-area{
+  .form-control{
+    &+.form-control{
+      margin-top: 1rem;
+    }
+
+  }
+  small{
+    &+.form-control{
+      margin-top: 1rem;
+    }
+  }
+}
+.btn-export-area{
+  display: block;
+  font-size: 1rem;
+  padding:0;
+  line-height: 1.6rem;
+  width: 1.7rem;
+  text-align: center;
+  -webkit-border-radius:50%;
+  -moz-border-radius:50%;
+  border-radius:50%;
+  &+&{
+    margin-top: 1rem;
+  }
+}
+#addDirectories{
+  overflow: hidden;
+}

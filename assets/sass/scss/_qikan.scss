@@ -1,0 +1,50 @@
+.qikan-wrapper{
+  .item{
+    padding: 0.8rem;
+    &.warning{
+      .fig-normal{
+        background-color: $orange;
+        color: $font-ff;
+      }
+    }
+  }
+  .fig-normal{
+    padding:0.2rem;
+    .img-shell{
+      position: relative;
+      overflow: hidden;
+      .paddingT{
+        padding-top: 145%;
+      }
+      .href-abs{
+        z-index: 99;
+      }
+      .fig-img{
+        position: absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        display: block;
+        margin:auto;
+        max-width:100%;
+        max-height:100%;
+      }
+    }
+    figcaption{
+      .fig-tit{
+        white-space: nowrap;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+      }
+    }
+    .info{
+      margin-bottom:0.3rem;
+      a{
+        display: inline-block;
+        padding: 0.2rem;
+      }
+    }
+  }
+}

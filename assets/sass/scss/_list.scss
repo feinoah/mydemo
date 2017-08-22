@@ -1,0 +1,48 @@
+.normal-list{
+  .nor-li{
+    position: relative;
+    display: block;
+    padding-top: 0.5rem;
+    line-height: 1.5rem;
+    border-bottom:1px solid $grey-e9;
+    .nor-title{
+      width: 60%;
+      float: left;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .nor-time{
+      width: 20%;
+      float: right;
+      text-align: right;
+      color: $grey-b5;
+    }
+  }
+}
+.dropdown-menu{
+  &.cols-5{
+    min-width: 180px;
+    &>li{
+      display: inline-block;
+      width: 20%;
+      float: left;
+      text-align: center;
+      &>a{
+        padding:3px 0;
+      }
+    }
+  }
+  &.cols-2{
+    &>li{
+      display: inline-block;
+      width: 50%;
+      float: left;
+      text-align: center;
+      &>a{
+        padding:3px 0;
+      }
+    }
+  }
+
+}

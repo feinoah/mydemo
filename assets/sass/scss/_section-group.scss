@@ -1,0 +1,35 @@
+.section-group{
+  h4 {
+    padding: 0.2rem 0.3rem;
+    border-left: 2px solid blue;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+    &.bg-primary{
+      small{
+        color: $font-ff;
+      }
+    }
+  }
+  .content{
+    padding: 1rem 0;
+    p {
+      text-indent: 0.3rem;
+      margin-bottom: 0.3rem;
+      font-size: 0.7rem;
+      line-height: 1.5rem;
+    }
+    pre{
+      padding: 1.5rem 1rem;
+    }
+    .ul-default{
+      padding:0.5rem 1rem;
+      border-left: 2px solid orange;
+      background-color: darken($body-bg,10%);
+      li{
+        font-size: 0.7rem;
+        line-height: 2rem;
+      }
+    }
+  }
+
+}

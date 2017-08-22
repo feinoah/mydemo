@@ -1,0 +1,130 @@
+@charset "utf-8";
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+//
+$bg-ff:                 #fff;
+$bg-fb:                 #fbfbfb;
+$bg-f9:                 #f9f9f9;
+$bg-ee:                 #eee;
+$bg-cc:                 #ccc;
+$bg-00:                 #000;
+$bg-f1:                 #f1f1f1;
+$bg-base:               #ECF0F1;
+$font-33:               #333;
+$font-66:               #666;
+$font-99:               #999;
+$font-ff:               #fff;
+$font-00:               #000;
+$font-base:             #3A4145;
+$navy-grey:             #2e4960;
+$navy:                  #283e52;
+$green:                 #00c099;
+$green-light:           #05a389;
+$orange:                #f4731c;
+$grey-fb:               #fbfbfb;
+$grey-fa:               #fff;
+$grey-e9:               #e9e9e9;
+$grey-66:               #666666;
+$grey-99:               #999999;
+$grey-b5:               #b5b5b5;
+$grey-base:             #ECF0F1;
+$black:                 #2e485f;
+//admin console
+$navy-console-dark:           #09323f;
+$navy-console-light:          #283e52;
+$console-green:               #3f9391;
+$console-right-bg:            #ffffff;
+$console-f8:                  #f8f8f8;
+$border-ff:                   #fff;
+$border-df:                   #dfdfdf;
+$border-dd:                   #ddd;
+$border-green:                #00c099;
+$table-row-bg:                #e7f8ff;
+//## Gray and brand colors for use across Bootstrap.
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+$brand-primary:         #428bca !default;
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+$font-color-cat:        #cbc092 !default;
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** body 背景色.
+$body-bg:               $bg-base !default;
+//** body  全局文本
+$text-color:            $font-base !default;
+
+//** Global textual link color.
+$link-color:            $orange !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%) !default;
+//** Link hover decoration.
+$link-hover-decoration: underline !default;
+
+
+
+//== Typography
+//
+//## 字体设置.
+$font-code:               Source Code Pro,monospace!important;
+$font-family-sans-serif:  "\5FAE\8F6F\96C5\9ED1","Microsoft Yahei","PingFang SC","PingFang SC Light",tahoma,"Hiragino Sans GB",Arial,Helvetica,sans-serif,"微软雅黑" !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+//**  `<code>`, `<kbd>`, and `<pre>`的默认字体.
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base:        $font-family-sans-serif !default;
+
+$font-html-size:          20px !default;
+$font-size-base:          ceil(($font-html-size * 1.4)) !default;// 14px
+$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
+$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
+$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
+$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$font-size-16-nav:           ceil(($font-html-size*1.6));
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.428571429 !default; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family:    inherit !default;
+$headings-font-weight:    500 !default;
+$headings-line-height:    1.1 !default;
+$headings-color:          inherit !default;
+
+
+
+
+
+//border style
+
+$border-base-color:    $grey-e9;
+
+
+//width
+$container-width: 1130px !default;
+
+
+//cols config 生成一个一行20列的grids
+$grid-columns:              20 !default;
+$grid-gutter-width:         1rem !default;
+$enable-flex:               false !default;

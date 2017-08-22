@@ -1,0 +1,192 @@
+.lou-2{
+    padding-top: 1.25rem;
+  padding-bottom: 1.5rem;
+  background-color: $bg-ff;
+    &:nth-of-type(even){
+      background-color: $grey-fb;
+    }
+    .title{
+      font-size: 1.1rem;
+      color: $black;
+      .more{
+        display: inline-block;
+        color: $green;
+        font-size: 0.6rem;
+        float: right;
+        vertical-align: bottom;
+        margin-top: 0.5rem;
+        cursor: pointer;
+      }
+    }
+    .body{
+      padding-top: 0.4rem;
+      .left{
+        float: left;
+        width: 10rem;
+        .header-tit{
+          font-size: 0.7rem;
+          line-height: 2.65rem;
+          padding:0 0.75rem;
+          color: $black;
+          background-color:$green;
+          border-top-left-radius:0.2rem;
+          border-top-right-radius:0.2rem;
+        }
+        .content-list{
+          background-color: $navy-grey;
+          min-height: 12.5rem;
+          border-bottom-left-radius:0.2rem;
+          border-bottom-right-radius:0.2rem;
+          .item{
+            font-size: 0.65rem;
+            padding:0 0.75rem;
+            line-height: 2.5rem;
+            display: block;
+            color: $green;
+            &.active,&:hover{
+              background-color: $navy;
+            }
+          }
+        }
+      }
+      .right{
+        float: right;
+        width: 44rem;
+        font-size: 0.6rem;
+        .table{
+          &>thead>tr>th{
+            border-top:2px solid #ddd;
+            border-bottom:1px solid #DDDDDD;
+            font-weight:400;
+            background-color: $grey-fb;
+            line-height: 1.7rem;
+            color: $black;
+          }
+          &>thead>tr>th:nth-child(1){
+            padding-left:0.6rem;
+          }
+          &>tbody>tr>th{
+            font-weight:400;
+            padding-left:0.6rem;
+          }
+          &>tbody>tr:hover{
+            color: $orange;
+            cursor: pointer;
+          }
+          &>tbody>tr>th,&>tbody>tr>td{
+            line-height: 1.2rem;
+          }
+        }
+      }
+    }
+}
+
+
+.bbs-chuangxin{
+  padding:1.5rem 0;
+  background-color: $grey-fb;
+  .body{
+    padding:1.5rem 0;
+  }
+  .left,.right{
+    width: 50%;
+    display: inline-block;
+    float: left;
+  }
+  .left{
+    position: relative;
+    .l-right{
+      padding-left:1rem;
+      .title{
+        font-size: 0.7rem;
+        color: $black;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+      .time{
+        font-size: 0.7rem;
+        color: $orange;
+        font-weight: 200;
+        margin-bottom: 0.25rem;
+      }
+      .content{
+        font-size: 0.6rem;
+        color: $grey-99;
+        max-height:3rem;
+        overflow: hidden;
+        line-height: 0.75rem;
+      }
+      .button-box{
+        padding-top: 0.5rem;
+      }
+    }
+
+  }
+  .right{
+    padding-left: 2rem;
+    .item{
+      position: relative;
+      padding:0 0.25rem 0.75rem;
+      margin:0 -0.25rem;
+      width: 50%;
+      display: inline-block;
+      float: left;
+      .i-left{
+        float: left;
+      }
+      .i-right{
+        float: right;
+      }
+      .i-left{
+        .img-shell{
+          border: 1px solid $green;
+          -webkit-border-radius: 0.2rem;
+          -moz-border-radius: 0.2rem;
+          border-radius: 0.2rem;;
+          background-color: #ffffff;
+          width: 3.5rem;
+          height: 3.5rem;
+          overflow: hidden;
+          img{
+            padding:0.2rem;
+            width: 3.4rem;
+            height:3.4rem;
+          }
+        }
+      }
+      .i-right{
+        width: 68%;
+        .ir-title{
+          font-size: 0.7rem;
+        }
+        .ir-info{
+          font-size: 0.6rem;
+          margin-top: 0.4rem;
+        }
+      }
+      &.active>.i-left>.img-shell{
+        background-color: $green;
+      }
+      &.active>.i-right>.ir-info,&:hover>.i-right>.ir-info{
+        color: $orange;
+      }
+    }
+  }
+}
+.others{
+  padding:1.5rem 0;
+  background-color: $bg-ff;
+  .normal-list{
+    font-size: 0.6rem;
+  }
+  .left{
+    width: 32rem;
+    float: left;
+
+  }
+  .right{
+    width: 21rem;
+    float: right;
+  }
+}
+

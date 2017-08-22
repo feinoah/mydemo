@@ -1,0 +1,10 @@
+.paginate{
+  a,span{
+    display: inline-block;
+    margin-right: 0.25rem;
+    padding: 0.2rem 0.25rem;
+  }
+  a{
+    background-color: $bg-ee;
+  }
+}

@@ -1,0 +1,202 @@
+.msg-box{
+  border-top: 1px solid $border-dd;
+  padding-top: 0.75rem;
+  position: relative;
+  .msg-nav{
+    .nav-item{
+      display: block;
+      line-height: 1.55rem;
+      padding-left:0.75rem;
+      margin-bottom: 0.5rem;
+      width:5.7rem;
+      color: $navy;
+      cursor: pointer;
+      &.active,&:hover{
+        background-color: $orange;
+        color: $font-ff;
+        -webkit-border-radius: 0.2rem;
+        -moz-border-radius: 0.2rem;
+        border-radius: 0.2rem;;
+        i{
+          font-size: 0.8rem;
+        }
+      }
+      i{
+        margin-right:0.3rem;
+      }
+      .badge{
+        color: $navy;
+        background-color: $bg-ff;
+      }
+    }
+  }
+  .msg-list{
+    .msg-item{
+      position: relative;
+      padding: 1rem 0.5rem;
+      border: 1px solid $border-dd;
+      margin-bottom: 0.5rem;
+      -webkit-border-radius: 0.2rem;
+      -moz-border-radius: 0.2rem;
+      border-radius: 0.2rem;
+      cursor: pointer;
+      input[type=checkbox]{
+        position: absolute;
+        top:50%;
+        margin-top: -0.2rem;
+      }
+      .fig-inline{
+        margin-left: 1.5rem;
+        .fig-img{
+          width: 1.75rem;
+          -webkit-border-radius:100%;
+          -moz-border-radius:100%;
+          border-radius:100%;
+          overflow: hidden;
+          border: 1px solid $border-dd;
+        }
+        figcaption{
+          padding:0;
+          padding-left: 0.5rem;
+
+          .fig-tit{
+            font-size: 0.6rem;
+            color: $font-99;
+            white-space: nowrap;
+            overflow: hidden;
+            -ms-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            margin-bottom:0.2rem;
+          }
+          .fig-info{
+            font-size: 0.6rem;
+            color: $font-66;
+            white-space: nowrap;
+            overflow: hidden;
+            -ms-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+      .time{
+        position:absolute;
+        top: 1rem;
+        right: 1rem;
+        color: $font-99;
+      }
+      &.active,&:hover{
+        background-color: $green;
+        border-color: $green;
+        .time{
+          color: $font-ff;
+        }
+        .fig-inline{
+          figcaption{
+            .fig-tit{
+              color: $font-ff;
+            }
+            .fig-info{
+              color: $font-ff;
+            }
+          }
+        }
+
+
+      }
+    }
+  }
+  .msg-detail{
+    padding-left: 2rem;
+    .msg-head{
+      margin-bottom: 2rem;
+      .fig-inline{
+        .fig-img{
+          width: 2rem;
+          -webkit-border-radius: 2rem;
+          -moz-border-radius: 2rem;
+          border-radius: 2rem;
+          border: 1px solid $border-dd;
+          overflow: hidden;
+        }
+        figcaption{
+          padding:0;
+          padding-left: 0.75rem;
+          .fig-tit{
+            font-size: 0.6rem;
+            color: $font-33;
+            margin-bottom: 0.1rem;
+          }
+        }
+      }
+    }
+    .msg-body{
+      .msg-tit{
+        font-size: 0.9rem;
+        color: $font-33;
+        padding-bottom:1rem;
+        border-bottom: 1px solid $border-dd;
+      }
+      .msg-content{
+        padding: 0.5rem 0 6.25rem;
+        color: $font-33;
+      }
+    }
+    .msg-return{
+      .return-input{
+        display: block;
+        width: 100%;
+        border: 1px solid $border-dd;
+        border-bottom:0;
+        -webkit-border-top-right-radius: 0.2rem;
+        -moz-border-top-right-radius: 0.2rem;
+        border-top-right-radius: 0.2rem;
+        -webkit-border-top-left-radius: 0.2rem;
+        -moz-border-top-left-radius: 0.2rem;
+        border-top-left-radius: 0.2rem;
+        padding: 0.5rem;
+        color: $font-99;
+        font-size: 0.6rem;
+        resize: none;
+      }
+      .submit-box{
+        background-color: $bg-ee;
+        line-height: 2rem;
+        -webkit-border-bottom-right-radius: 0.2rem;
+        -moz-border-bottom-right-radius: 0.2rem;
+        border-bottom-right-radius: 0.2rem;
+        -webkit-border-bottom-left-radius: 0.2rem;
+        -moz-border-bottom-left-radius: 0.2rem;
+        border-bottom-left-radius: 0.2rem;
+        overflow: hidden;
+        .btn{
+          -webkit-border-radius:0;
+          -moz-border-radius:0;
+          border-radius:0;
+        }
+      }
+    }
+  }
+  .action-box{
+    position: absolute;
+    top: -1.5rem;
+    right: 1rem;
+    font-size: 0.8rem;
+    i{
+      margin-right: 0.5rem;
+      cursor: pointer;
+    }
+
+  }
+}
+.resCodeMsg{
+  padding-top:0.5rem;
+  line-height: 1.5rem;
+  color: red;
+  text-align: center;
+  display: none;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -ms-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+}
