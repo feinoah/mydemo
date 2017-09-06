@@ -54,7 +54,8 @@
                     </h4>
                     <div class="content"><p>在一个子构造函数中，你可以通过调用父构造函数的 call 方法来实现继承，类似于Java中的写法</p>
                         <p>下例中，使用 Food 和 Toy 构造函数创建的对象实例都会拥有在 Product 构造函数中添加的 name 属性和 price 属性,但 category 属性是在各自的构造函数中定义的。</p>
-                    <pre>function Product(name, price) {
+                    <pre>
+function Product(name, price) {
   this.name = name;
   this.price = price;
 
@@ -88,14 +89,16 @@ function Toy(name, price) {
 }
 
 var cheese = new Food('feta', 5);
-var fun = new Toy('robot', 40);</pre>
+var fun = new Toy('robot', 40);
+                    </pre>
                     </div>
                     <h4 class="bg-primary">用call方法调用匿名函数,
                         <small></small>
                     </h4>
                     <div class="content"><p>在下例中的for循环体内,创建了一个匿名函数,然后用call方法为每个数组元素执行此函数,其目的是给每个数组元素对象添加一个print方法</p>
                         <p></p>
-                    <pre>var animals = [
+                    <pre>
+var animals = [
   {species: 'Lion', name: 'King'},
   {species: 'Whale', name: 'Fail'}
 ];
@@ -123,7 +126,8 @@ var i = {
   person: 'Douglas Crockford', role: 'Javascript Developer'
 };
 
-greet.call(i); // Douglas Crockford Is An Awesome Javascript Developer</pre>
+greet.call(i); // Douglas Crockford Is An Awesome Javascript Developer
+                    </pre>
                     </div>
                 </div>
 

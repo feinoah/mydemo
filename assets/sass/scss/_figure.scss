@@ -2,47 +2,38 @@ figure{
   position: relative;
 }
 .fig-default{
-  padding: 0.5rem;
-  .fig-img-shell{
+  position: relative;
+  .fig-img-wrapper{
     position: relative;
-    .paddingTop{
-      padding-top:75%;
+    .paddingT{
+      padding-top: 100%;
     }
-    .fig-img{
+    img{
       position: absolute;
-      display: block;
       top:0;
-      left: 0;
       bottom:0;
+      left:0;
       right:0;
+      display: block;
       max-height:100%;
       max-width:100%;
       margin:auto;
     }
   }
-  figcaption{
-    padding:0.5rem 0;
+  &>figcaption{
+    padding: 0.5rem 0;
     .fig-tit{
       font-size: 0.7rem;
       margin-bottom: 0.5rem;
       overflow: hidden;
     }
+    .fig-info{
+      font-size: 0.6rem;
+      margin-bottom: 0.3rem;
+      overflow: hidden;
+    }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .fig-one{
   position: relative;
   &>figcaption{
@@ -61,15 +52,43 @@ figure{
     padding:0.2rem;
   }
 }
-
-.fig-inline{
-  //padding:0.75rem;
+.fig-normal{
+  padding: 0.5rem;
   .fig-img{
+    display: block;
+    margin:0 auto;
+  }
+  figcaption{
+    padding:0.5rem 0;
+    .fig-tit{
+      font-size: 0.7rem;
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+    }
+  }
+}
+.fig-inline,.fig-inline-v2{
+  //padding:0.75rem;
+  .fig-img-wrapper{
     position: relative;
     width: 40%;
     display: inline-block;
     float: left;
     border:1px solid $border-dd;
+    .paddingT{
+      padding-top: 100%;
+    }
+    img{
+      position: absolute;
+      top:0;
+      bottom:0;
+      left:0;
+      right:0;
+      display: block;
+      max-height:100%;
+      max-width:100%;
+      margin:auto;
+    }
   }
   figcaption{
     width: 60%;
@@ -80,24 +99,15 @@ figure{
       font-size:0.9rem;
       margin-bottom: 0.5rem;
     }
+    .fig-info{
+      font-size: 0.6rem;
+      margin-bottom: 0.3rem;
+    }
   }
 }
 .fig-inline-v2{
-  .fig-img{
-    position: relative;
-    display: inline-block;
-    float: left;
-    border:1px solid $border-dd;
-    img{
-      display: block;
-      margin-left:auto;
-      margin-right:auto;
-    }
-  }
   figcaption{
-    display: inline-block;
-    float: left;
-    padding:0.5rem;
+    width:auto;
     .fig-tit{
       font-size: 0.9rem;
       margin-bottom:0.5rem;
