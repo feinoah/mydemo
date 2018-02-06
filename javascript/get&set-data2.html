@@ -13,101 +13,45 @@
     <div id="introduce">xxx</div>
 </div>
 <script>
-    var person = {
-        name: 'jack',
-        age: '18',
-        sex: '',
-        set namef(val) {
-//            console.log('val:' + val);
-            this.name = val;
-            return
-        },
-        get namef() {
-            console.log(this.name);
-            if (this.name === '') {
-                this.name = 'no name'
-            }
-            var el = document.getElementById('name').innerText = this.name;
-            return this.name
-        }
-    }
-    console.log(person);
-    var person2 = {
-        name: 'jack',
-        age: '18',
-        sex: ''
+    var data = {
+        value: 'hello!',
+        name: 'jack'
     };
-    var defineGetAndSet = function (obj, obj2) {
+    var bValue;
+    /**
+     * 定义属性设置劫持
+     */
+    var defineGetAndSet = function (obj, propName, val) {
         try {
-            for (var key in obj2) {
-                if (obj.hasOwnProperty(key)) {//只遍历对象自身的属性 而不包含继承于原型链上的属性。
-                    Object.defineProperty(obj, key, {
-                        set: function (val) {
-                            this['_' + key] = obj[key]
-                        },
-                        get: function () {
-                            return this['_' + key]
-                        },
-                        enumerable: true,
-                        configurable: true
-                    });
-                }
-            }
+            Object.defineProperty(obj, propName, {
+
+                get: function () {
+                    return val;
+                },
+                set: function (val) {
+
+                },
+
+                enumerable: true,
+                configurable: true
+            });
         } catch (error) {
             console.log("browser not supported.");
         }
-    };
-
-
-    defineGetAndSet(person2);
-
-
-    var userInfo = {};
-    var dData = function (options) {
-        this.data = options.data;
-        this.init();
     }
-    dData.prototype = {
-        init: function () {
-            var _this = this;
-            var obj = _this.data;
-            for (var key in obj) {
-                if (obj.hasOwnProperty(key)) {
-                    (function () {
-                        var val = obj[key];
-                        //只遍历对象自身的属性 而不包含继承于原型链上的属性。
-                        Object.defineProperty(obj, key, {
-                            set: function (val) {
-                                this['_' + key] = obj[key]
-                            },
-                            get: function () {
-                                return this['_' + key]
-                            },
-                            enumerable: true,
-                            configurable: true
-                        });
-
-                    })(key)
-                }
-            }
+    /**
+     * 初始化数据
+     */
+    /**
+     * 可以理解为做数据劫持监听
+     */
+    for (var key in data) {
+        if (data.hasOwnProperty(key)) {
+            bValue = data[key];
+            defineGetAndSet(data, key, bValue);
         }
-    };
-    Object.defineProperty(userInfo, "nickName", {
-        get: function () {
-            return document.getElementById('nickName').innerHTML;
-        },
-        set: function (nick) {
-            document.getElementById('nickName').innerHTML = nick;
-        }
-    });
-    Object.defineProperty(userInfo, "introduce", {
-        get: function () {
-            return document.getElementById('introduce').innerHTML;
-        },
-        set: function (introduce) {
-            document.getElementById('introduce').innerHTML = introduce;
-        }
-    })
+    }
+    console.log(data);
 </script>
 </body>
 </html>

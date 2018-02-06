@@ -40,3 +40,10 @@ background: url(../img/charector.png) 0 0 no-repeat;
     85.8% {background-position: -1080px 0;}
     100% {background-position: 0 0;}
 }
+.stop {
+    animation-play-state: paused;
+}
+#btn{
+    margin-top: 320px;
+    margin-left: 100px;
+}

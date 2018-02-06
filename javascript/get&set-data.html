@@ -6,43 +6,47 @@
 </head>
 <body>
 <div id="name"></div>
+<div id="age"></div>
+<div id="sex"></div>
+<div class="user">
+    <div id="nickName">xx</div>
+    <div id="introduce">xxx</div>
+</div>
 <script>
     var person = {
         name: 'jack',
         age: '18',
-        sex: ''
-//        set namef(val) {
-////            console.log('val:' + val);
-//            this.name = val;
-//            return
-//        },
-//        get namef() {
-//            console.log(this.name);
-//            if (this.name === '') {
-//                this.name = 'no name'
-//            }
-//            var el = document.getElementById('name').innerText = this.name;
-//            return this.name
-//        }
+        sex: '',
+        set namef(val) {
+//            console.log('val:' + val);
+            this.name = val;
+            return
+        },
+        get namef() {
+            console.log(this.name);
+            if (this.name === '') {
+                this.name = 'no name'
+            }
+            var el = document.getElementById('name').innerText = this.name;
+            return this.name
+        }
     }
-
-    console.log(person.name);
-
-    var defineGetAndSet = function (obj) {
+    console.log(person);
+    var person2 = {
+        name: 'jack',
+        age: '18',
+        sex: ''
+    };
+    var defineGetAndSet = function (obj, obj2) {
         try {
-            for (var key in obj) {
-                if (obj.hasOwnProperty(key)) {//只遍历对象自身的属性 而不包含继承于原型链上的属性。 
+            for (var key in obj2) {
+                if (obj.hasOwnProperty(key)) {//只遍历对象自身的属性 而不包含继承于原型链上的属性。
                     Object.defineProperty(obj, key, {
-                        get: function () {
-                            if (obj[key] === '') {
-                                obj[key] = 'no value'
-                            }
-                            return obj[key];
-                        },
                         set: function (val) {
-                            obj[key] = val;
-                            var el = document.getElementById('name').innerText = obj[key];
-                            return obj[key]
+                            this['_' + key] = obj[key]
+                        },
+                        get: function () {
+                            return this['_' + key]
                         },
                         enumerable: true,
                         configurable: true
@@ -53,8 +57,57 @@
             console.log("browser not supported.");
         }
     };
-    defineGetAndSet(person);
 
+
+    defineGetAndSet(person2);
+
+
+    var userInfo = {};
+    var dData = function (options) {
+        this.data = options.data;
+        this.init();
+    }
+    dData.prototype = {
+        init: function () {
+            var _this = this;
+            var obj = _this.data;
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    (function () {
+                        var val = obj[key];
+                        //只遍历对象自身的属性 而不包含继承于原型链上的属性。
+                        Object.defineProperty(obj, key, {
+                            set: function (val) {
+                                this['_' + key] = obj[key]
+                            },
+                            get: function () {
+                                return this['_' + key]
+                            },
+                            enumerable: true,
+                            configurable: true
+                        });
+
+                    })(key)
+                }
+            }
+        }
+    };
+    Object.defineProperty(userInfo, "nickName", {
+        get: function () {
+            return document.getElementById('nickName').innerHTML;
+        },
+        set: function (nick) {
+            document.getElementById('nickName').innerHTML = nick;
+        }
+    });
+    Object.defineProperty(userInfo, "introduce", {
+        get: function () {
+            return document.getElementById('introduce').innerHTML;
+        },
+        set: function (introduce) {
+            document.getElementById('introduce').innerHTML = introduce;
+        }
+    })
 </script>
 </body>
 </html>

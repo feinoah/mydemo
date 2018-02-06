@@ -1,14 +1,13 @@
 /**
  * Created by ifeng on 2018/1/2.
  */
-var express = require('express');
+var express = require('express')
 //设置端口，从环境变量取值或设置为3000，可以用在命令行里面使用PORT=4000来设置端口
 var path = require('path')
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3000
 //启动web服务器，赋值给app
 var app = express()
 var mongoose = require('mongoose')
-
 //
 var bodyParser = require('body-parser')
 
@@ -26,12 +25,15 @@ db.on('error', function(error){
 db.once('open', function(){
     console.log('数据库连接成功');
 });
+//设置本地方法moment
+app.locals.moment=require('moment')
+
 //设置视图的根目录
 app.set('views', './views/pages')
 //设置默认的模版引擎
 app.set('view engine', 'pug')
-app.use(bodyParser.urlencoded({extended: true}));//对表单提交的数据进行格式化
-app.use(express.static(path.join(__dirname, 'node_modules')))
+app.use(bodyParser.urlencoded({extended: true})) //对表单提交的数据进行格式化
+app.use(express.static(path.join(__dirname, 'public'))) //设置静态文件路径
 //监听端口
 app.listen(port)
 //打印一行日志，在控制面板里面可以看到服务是否启动
@@ -58,12 +60,15 @@ app.get('/', function (req, res) {
 //deail router
 app.get('/movie/:id', function (req, res) {
     var id = req.params.id
-    Movie.findById(id, function (err, movie) {
-        res.render('detail', {
-            title: 'imooc 详情页' + movie.title,//向首页返回一个变量title
-            movie: movie
+    if(id){
+        Movie.findById(id, function (err, movie) {
+            res.render('detail', {
+                title: 'imooc 详情页' + movie.title,//向首页返回一个变量title
+                movie: movie
+            })
         })
-    })
+    }
+
 })
 
 //admin router
@@ -83,8 +88,10 @@ app.get('/admin/movie', function (req, res) {
     })
 })
 //admin update router
-app.get('admin/update/:id', function (req, res) {
+app.get('/admin/update/:id', function (req, res) {
+    console.log('update')
     var id = req.params.id
+    console.log(id)
     if (id) {
         Movie.findById(id, function (err, movie) {
             res.render('admin', {
@@ -149,4 +156,17 @@ app.get('/admin/list', function (req, res) {
             movies: movies
         })
     })
+})
+//list delete
+app.delete('/admin/list',function(req,res){
+    var id=req.query.id
+    if(id){
+        Movie.remove({_id:id},function(err,movie){
+            if(err){
+                console.log(err)
+            }else{
+                res.json({success:1})
+            }
+        })
+    }
 })

@@ -1,0 +1,26 @@
+{
+  "name": "imooc",
+  "description": "mongodb + pug",
+  "main": "",
+  "authors": [
+    "fec"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "imooc"
+  ],
+  "homepage": "https://github.com/ifengec/mydemo",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "2.1.4"
+  }
+}

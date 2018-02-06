@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
-<meta content="yes" name="apple-mobile-web-app-capable">
-<meta content="black" name="apple-mobile-web-app-status-bar-style">
-<meta content="telephone=no" name="format-detection">
-<meta content="email=no" name="format-detection">
-<title>demo</title>
-<link rel="stylesheet" href="css/index.css" />
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>demo</title>
+    <link rel="stylesheet" href="css/index.css"/>
 
 
 </head>
 
 <body>
 
-<div class="charector"></div>
+<div class="charector" id="charector"></div>
+<input value="暂停" type="button" id="btn">
+<script>
+    var charector = document.getElementById("charector"),
+            button = document.getElementById("btn");
 
+    button.onclick = function () {
+        if (this.value == '暂停') {
+            charector.classList.add('stop');
+            this.value = '播放';
+        } else {
+            charector.classList.remove('stop');
+            this.value = '暂停';
+        }
+    }
+</script>
 </body>
 </html>
 

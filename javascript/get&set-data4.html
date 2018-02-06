@@ -13,31 +13,20 @@
     <div id="introduce">xxx</div>
 </div>
 <script>
-    function User(name,age){
-        this.Name=name;
-        this.Age =age;
+    function Field(val){
+        this.value = val;
     }
-    /*2.为Age 属性添加get和set方法，方法1*/
-    //    Field.prototype = {
-    //        get Age(){
-    //            return this._Age;
-    //        },
-    //        set Age(age){
-    //            this._Age = age;
-    //            ShowSetInfo(this);
-    //        }
-    //    };
-    /*2.为Age属性添加get和set方法，方法2*/
-    User.prototype.__defineGetter__("Age", function () {
-
-        return this._Age;
-    });
-    User.prototype.__defineSetter__("Age", function (val) {
-        this._Age = val;
-    });
-    console.log(User);
-    var nuser=new User('jack','18');
-    console.log(nuser);
+    Field.prototype = {
+//        constructor:Field,
+        get value(){
+            return this._value;
+        },
+        set value(val){
+            this._value = val;
+        }
+    };
+    var test = new Field('18');
+    console.log(test);
 </script>
 </body>
 </html>

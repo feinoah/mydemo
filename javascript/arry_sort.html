@@ -67,7 +67,7 @@
 
                 </div>
                 <div class="section-group">
-                    <h4 class="bg-primary">实例</h4>
+                    <h4 class="bg-primary">实例1:</h4>
                     <div class="content">
                         <pre>var arr1 = [1, 2, 3, 4, 5];// 比较了4次,说明sort方法里面有个机制来过滤掉不必要的比较
 var arr2 = [1, 3, 2, 4, 5];// 比较了5次
@@ -79,11 +79,26 @@ function sortNumber(a,b){
     return a-b;
 }</pre>
                     </div>
+                    <h4 class="bg-primary">实例2:洗牌</h4>
+                    <div class="content">
+                        <pre>function randomSort (a, b) {
+        return Math.random() > 0.5 ? -1 : 1;}</pre>
+                    </div>
+                    <h4 class="bg-primary">实例2:洗牌与slice一起,随机从数组中抽取n个</h4>
+                    <div class="content">
+                        <pre>var arr=[2,3,6,7,9,1,4]
+var arr2 = arr.sort(randomSort).slice(0,5);
+console.log(arr2);
+ function randomSort (a, b) {
+        return Math.random() > 0.5 ? -1 : 1;}</pre>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
+
 <script src="../assets/statics/jquery/1.11.1/jquery.min.js"></script>
 <script>
 
@@ -93,9 +108,9 @@ function sortNumber(a,b){
     var arr2 = [1, 3, 2, 4, 5];// 比较了5次
     arr1.sort(sortNumber);
     arr2.sort(sortNumber);
-    function sortNumber(a,b){
+    function sortNumber(a, b) {
         console.log('次比较');
-        return a-b;
+        return a - b;
     }
 </script>
 </body>

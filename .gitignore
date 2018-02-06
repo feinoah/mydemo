@@ -1,6 +1,7 @@
 
 /node_modules
-
+*/node_modules
+*/public/libs
 .env
 /.DS_Store
 /Thumbs.db
@@ -23,7 +24,7 @@ public/.DS_Store
 */.sass-cache
 */.DS_Store
 
-/node_modules
+
 .env
 
 app/.DS_Store
@@ -38,3 +39,5 @@ database/users/*
 public/users/*
 sftp-config.json
 config/*-local*
+/node/imooc/node_modules
+/node/imooc/public/libs

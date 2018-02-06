@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cmn">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/>
+    <title>text</title>
 </head>
 <body>
+<svg width="400" height="300" viewBox="0 0 400 300">
+    <path id="textPath" d="M10,10 L40,60 L20,80 L60,90 L70,20 Z" stroke="red" fill="none"></path>
+    <text stroke="red" fill="green" font-size="30" font-family="Microsoft YaHei"></text>
+</svg>
+<script src="../../assets/statics/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    $(function() {
 
+        //创建文本路径
+        var $textPath = createSvg('textPath', {
+            'xlink:href': '#textPath',
+        }).text('123456').appendTo('text');
+
+        //创建svg相关元素
+        function createSvg(tag, attr) {
+            if(!document.createElementNS) return;//防止IE8报错
+            var $svg = $(document.createElementNS('http://www.w3.org/2000/svg', tag));
+            for(var key in attr) {
+                switch(key) {
+                    case 'xlink:href'://文本路径添加属性特有
+                        $svg[0].setAttributeNS('http://www.w3.org/1999/xlink', key, attr[key]);
+                        break;
+                    default:
+                        $svg.attr(key, attr[key]);
+                }
+            }
+            return $svg;
+        }
+    });
+</script>
 </body>
 </html>

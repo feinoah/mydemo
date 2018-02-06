@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #test{
+            width: 200px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+<div id="test"></div>
+<script>
+    function typing() {
+        var _txt = '这是一段话' + '-' +
+                '请不要问为什么这里还有一段话' + '-' +
+                '这还是一段话';
+        var elm = document.getElementById('test');
+        var html = '';
+        var i = 0;
+        var timer = null;
+        timer = setInterval(function () {
+            if (i < _txt.length) {
+                i++;
+                html = '<p>' + _txt.slice(0, i) + '</p>';
+                html = html.replace(/\-/g, "</p><p>");
+                console.log(i);
+                elm.innerHTML = html;
+            }
+            else {
+                clearInterval(timer);
+                setTimeout(function () {
+                    console.log('do something');
+                }, 500);
+            }
+        }, 100);
+    }
+    typing();
+</script>
+</body>
+</html>
