@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="cmn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style” content=black">
+    <link rel="shortcut icon" href="">
+    <link rel="apple-touch-icon" href="">
+    <meta name="keywords" content="关键词1,关键词2">
+    <meta name="description" content="描述">
+    <title>form 数据绑定</title>
+    <link href="../assets/statics/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/statics/bootstrapvalidator/css/bootstrapValidator.min.css" rel="stylesheet">
+    <link href="../assets/statics/animate/animate.css?v=148" rel="stylesheet">
+    <link href="../assets/css/all.css?v=148" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="../assets/statics/ie/ie8.css">
+    <script src="../assets/statics/ie/html5shiv.min.js"></script>
+    <script src="../assets/statics/ie/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        .text {
+            height: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-header">
+                    <h1>表单的数据绑定</h1>
+                </div>
+                <div class="body">
+                    <div class="section-group">
+                        <h4 class="bg-primary">v-model数据绑定</h4>
+                        <div class="content">
+                            <textarea name="" v-model="text" placeholder="请输入..." cols="30" rows="10"></textarea>
+                            <p>输入内容是:</p>
+                            <p class="text" style="white-space: pre" v-cloak>{{text}}</p>
+                        </div>
+
+                        <h4 class="bg-primary">input事件绑定</h4>
+                        <div class="content">
+                            <input type="text" @input="handleInput" placeholder="输入...">
+                            <p>输入内容是:{{msg}}</p>
+                        </div>
+                        <h4 class="bg-primary">单选按钮v-bind,bind绑定的是一个属性</h4>
+                        <div class="content">
+                            <input type="radio" :checked="picked">
+                        </div>
+                        <h4 class="bg-primary">单选按钮v-model,从以下实例可以看出v-model绑定的是input的value,也就是数据</h4>
+                        <div class="content">
+                            <div class="radios">
+                                <input type="radio" v-model="radiosPicked" value="html" id="html">
+                                <label for="html">HTML</label>
+                                <input type="radio" v-model="radiosPicked" value="js" id="js1">
+                                <label for="js1">JavaScript</label>
+                                <input type="radio" v-model="radiosPicked" value="css" id="css">
+                                <label for="css">CSS</label>
+                            </div>
+                        </div>
+                        <h4 class="bg-primary">多选按钮 v-model</h4>
+                        <div class="content">
+                            <input type="checkbox" v-model="checked1" id="checked1">
+                            <label for="checked1">选择状态:{{checked1}}</label>
+                        </div>
+                        <h4 class="bg-primary">多选按钮 v-model</h4>
+                        <div class="content">
+                            <div>
+                                <input type="checkbox" v-model="checked2" value="html" id="html2">
+                                <label for="html2">HTML</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" v-model="checked2" value="js" id="js2">
+                                <label for="js2">Javascript</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" v-model="checked2" value="css" id="css2">
+                                <label for="css2">CSS</label>
+                            </div>
+                            <p>多选按钮的值:{{checked2}}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/vue/2.5.9/vue.min.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data(){
+            return {
+                text: '',
+                msg: '',
+                picked: true,
+                radiosPicked: 'js',
+                checked1: false,
+                checked2:['js','html']
+            }
+        },
+        methods: {
+            handleInput: function (e) {
+                this.msg = e.target.value
+            }
+        }
+    })
+</script>
+</body>
+</html>

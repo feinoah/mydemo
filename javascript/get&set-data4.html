@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cmn">
+<head>
+    <meta charset="UTF-8">
+    <title>get and set</title>
+</head>
+<body>
+<div id="name"></div>
+<div id="age"></div>
+<div id="sex"></div>
+<div class="user">
+    <div id="nickName">xx</div>
+    <div id="introduce">xxx</div>
+</div>
+<script>
+    function User(name,age){
+        this.Name=name;
+        this.Age =age;
+    }
+    /*2.为Age 属性添加get和set方法，方法1*/
+    //    Field.prototype = {
+    //        get Age(){
+    //            return this._Age;
+    //        },
+    //        set Age(age){
+    //            this._Age = age;
+    //            ShowSetInfo(this);
+    //        }
+    //    };
+    /*2.为Age属性添加get和set方法，方法2*/
+    User.prototype.__defineGetter__("Age", function () {
+
+        return this._Age;
+    });
+    User.prototype.__defineSetter__("Age", function (val) {
+        this._Age = val;
+    });
+    console.log(User);
+    var nuser=new User('jack','18');
+    console.log(nuser);
+</script>
+</body>
+</html>

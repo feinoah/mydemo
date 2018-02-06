@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="cmn">
+<head>
+    <meta charset="UTF-8">
+    <title>get and set</title>
+</head>
+<body>
+<div id="name"></div>
+<div id="age"></div>
+<div id="sex"></div>
+<div class="user">
+    <div id="nickName">xx</div>
+    <div id="introduce">xxx</div>
+</div>
+<script>
+    var data = {
+        value: 'hello!',
+        name: 'jack'
+    };
+    var bValue;
+    /**
+     * 定义属性设置劫持
+     */
+    var defineGetAndSet = function (obj, propName, val) {
+        try {
+            Object.defineProperty(obj, propName, {
+
+                get: function () {
+                    return val;
+                },
+                set: function (val) {
+
+                },
+
+                enumerable: true,
+                configurable: true
+            });
+        } catch (error) {
+            console.log("browser not supported.");
+        }
+    }
+    /**
+     * 初始化数据
+     */
+    /**
+     * 可以理解为做数据劫持监听
+     */
+    for (var key in data) {
+        if (data.hasOwnProperty(key)) {
+            bValue = data[key];
+            defineGetAndSet(data, key, bValue);
+        }
+    }
+    console.log(data);
+</script>
+</body>
+</html>

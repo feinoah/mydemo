@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="cmn">
+<head>
+    <meta charset="UTF-8">
+    <title>get and set</title>
+</head>
+<body>
+<div id="name"></div>
+<script>
+    var person = {
+        name: 'jack',
+        age: '18',
+        sex: ''
+//        set namef(val) {
+////            console.log('val:' + val);
+//            this.name = val;
+//            return
+//        },
+//        get namef() {
+//            console.log(this.name);
+//            if (this.name === '') {
+//                this.name = 'no name'
+//            }
+//            var el = document.getElementById('name').innerText = this.name;
+//            return this.name
+//        }
+    }
+
+    console.log(person.name);
+
+    var defineGetAndSet = function (obj) {
+        try {
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key)) {//只遍历对象自身的属性 而不包含继承于原型链上的属性。 
+                    Object.defineProperty(obj, key, {
+                        get: function () {
+                            if (obj[key] === '') {
+                                obj[key] = 'no value'
+                            }
+                            return obj[key];
+                        },
+                        set: function (val) {
+                            obj[key] = val;
+                            var el = document.getElementById('name').innerText = obj[key];
+                            return obj[key]
+                        },
+                        enumerable: true,
+                        configurable: true
+                    });
+                }
+            }
+        } catch (error) {
+            console.log("browser not supported.");
+        }
+    };
+    defineGetAndSet(person);
+
+</script>
+</body>
+</html>
