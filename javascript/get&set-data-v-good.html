@@ -17,28 +17,32 @@
         value: 'hello!',
         name: 'jack'
     };
-    var bValue;
     /**
      * 定义属性设置劫持
      */
-    var defineGetAndSet = function (obj, propName, val) {
+    var defineGetAndSet = function (obj, propName, bval) {
         try {
             Object.defineProperty(obj, propName, {
 
                 get: function () {
-                    return val;
+                    console.log('getter')
+                    return bval
                 },
                 set: function (val) {
+                    console.log(propName + ' setter:' + val)
+                    if (propName === 'name') {
+                        document.getElementById('nickName').innerText = val
+                    }
 
                 },
-
                 enumerable: true,
                 configurable: true
-            });
+            })
         } catch (error) {
-            console.log("browser not supported.");
+            console.log("browser not supported.")
         }
     }
+
     /**
      * 初始化数据
      */
@@ -47,11 +51,11 @@
      */
     for (var key in data) {
         if (data.hasOwnProperty(key)) {
-            bValue = data[key];
-            defineGetAndSet(data, key, bValue);
+            var bval = data[key]
+            defineGetAndSet(data, key, bval);
         }
     }
-    console.log(data);
+    console.log(data)
 </script>
 </body>
 </html>

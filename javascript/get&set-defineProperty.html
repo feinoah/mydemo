@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cmn">
+<head>
+    <meta charset="UTF-8">
+    <title>get set defineProperty</title>
+</head>
+<body>
+<input type="text" id="userName">
+<br>
+<span id="uName"></span>
+<script>
+    var obj = {userName:'jack'}
+    Object.defineProperty(obj, "userName", {
+        get: function () {
+            console.log('get init')
+            return 'jack'
+        },
+        set: function (val) {
+            console.log('set init')
+            document.getElementById('uName').innerText = val
+            document.getElementById('userName').value = val
+        }
+    })
+    document.getElementById('userName').addEventListener('keyup', function () {
+        obj.userName = event.target.value
+    })
+    console.log(obj)
+</script>
+</body>
+</html>
